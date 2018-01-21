@@ -87,8 +87,8 @@ function formatArgs(args) {
     var c = this.color;
     var colorCode = '\u001b[3' + (c < 8 ? c : '8;5;' + c);
     var prefix = '  ' + colorCode + ';1m' + name + ' ' + '\u001b[0m';
-
-    args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+    args[0] = prefix + args[0];
+    // args[0] = prefix + args[0].split('\n').join('\n' + prefix);
     args.push(colorCode + 'm+' + module.exports.humanize(this.diff) + '\u001b[0m');
   } else {
     args[0] = getDate() + name + ' ' + args[0];
